@@ -1,4 +1,4 @@
-name: Deploy Vite site to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -23,7 +23,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - run: npm install
@@ -35,11 +35,6 @@ jobs:
 
   deploy:
     needs: build
-
-    permissions:
-      pages: write
-      id-token: write
-
     runs-on: ubuntu-latest
 
     environment:
